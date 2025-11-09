@@ -1,0 +1,273 @@
+/* --- CSS Reset và Cài đặt Chung --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    /* Căn giữa nội dung (ban đầu là form đăng nhập) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Trang Đăng nhập (#login-page) --- */
+#login-page {
+    width: 320px;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#login-form div {
+    margin-bottom: 15px;
+}
+
+#login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#login-form .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 48%; /* Chia không gian cho 2 nút */
+}
+
+#login-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+#login-form #register-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* --- Ứng dụng Chat chính (#chat-app) --- */
+#chat-app {
+    display: none; /* Ẩn ban đầu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden; /* Ngăn nội dung tràn ra ngoài */
+    display: flex; /* Sẽ được JS đổi thành 'flex' */
+    /* Thêm margin cho lề trái và lề phải */
+    margin-left: 180px; /* Thay đổi giá trị này theo ý muốn */
+    margin-right: 180px; /* Thay đổi giá trị này theo ý muốn */
+}
+
+/* --- Cột bên trái (#sidebar) --- */
+#sidebar {
+    width: 25%; /* Giảm độ rộng */
+    min-width: 220px; /* Giảm min-width */
+    background-color: #f8f9fa;
+    border-right: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-nav {
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+#sidebar-nav button {
+    flex: 1; /* Chia đều không gian */
+    padding: 15px;
+    background: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#sidebar-nav button:first-child {
+    border-right: 1px solid #dbdbdb;
+}
+
+#sidebar-nav button.active,
+#sidebar-nav button:hover {
+    background-color: #e9e9e9;
+}
+
+#list-container {
+    flex: 1; /* Lấp đầy không gian còn lại */
+    overflow-y: auto; /* Thêm thanh cuộn khi cần */
+}
+
+#list-container ul {
+    list-style: none;
+}
+
+#list-container li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9e9e9;
+    cursor: pointer;
+}
+
+#list-container li:hover {
+    background-color: #f1f1f1;
+}
+
+#list-container li .item-name {
+    font-weight: 600;
+}
+
+#list-container li .item-preview {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* --- Cột bên phải (#chat-window) --- */
+#chat-window {
+    width: 75%; /* Tăng độ rộng */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header mới trong cửa sổ chat */
+#chat-header {
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 bên */
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dbdbdb;
+    background-color: #f8f9fa;
+}
+
+#current-chat-topic {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-display {
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+#logout-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+#message-list {
+    flex: 1; /* Lấp đầy không gian */
+    padding: 20px;
+    overflow-y: auto; /* Thanh cuộn cho tin nhắn */
+    background-color: #ffffff;
+}
+
+/* Định dạng các bong bóng chat */
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message .sender {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.message .text {
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    background-color: #f1f0f0; /* Tin nhắn nhận */
+    line-height: 1.4;
+}
+
+/* Tin nhắn của chính mình */
+.message.self {
+    align-items: flex-end; /* Căn phải */
+}
+
+.message.self .text {
+    background-color: #007bff; /* Tin nhắn gửi */
+    color: white;
+}
+
+
+/* Khung nhập liệu */
+#message-form {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #dbdbdb;
+    background-color: #f8f9fa;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#send-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}

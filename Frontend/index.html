@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Chat Đơn giản</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. GIAO DIỆN ĐĂNG NHẬP / ĐĂNG KÝ -->
+    <div id="login-page">
+        <form id="login-form">
+            <h2>Đăng nhập Chat</h2>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit">Đăng nhập</button>
+                <button type="button" id="register-button">Đăng ký</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 2. GIAO DIỆN CHAT CHÍNH (ẨN BAN ĐẦU) -->
+    <div id="chat-app" style="display: none;"> <!-- Chuyển thành 'flex' bằng JS -->
+        
+        <!-- CỘT BÊN TRÁI: DANH SÁCH -->
+        <aside id="sidebar">
+            <!-- Điều hướng Bạn bè / Trò chuyện -->
+            <nav id="sidebar-nav">
+                <button id="friends-btn">Bạn bè</button>
+                <button id="convos-btn" class="active">Trò chuyện</button>
+            </nav>
+            
+            <!-- Danh sách (bạn bè hoặc trò chuyện) -->
+            <div id="list-container">
+                <!-- Nội dung sẽ được JS tải vào -->
+            </div>
+        </aside>
+
+        <!-- CỘT BÊN PHẢI: KHUNG CHAT -->
+        <main id="chat-window">
+            <!-- Header mới hiển thị Tên/Nút Đăng xuất -->
+            <header id="chat-header">
+                <div id="current-chat-topic">Nhóm Lập trình</div> <!-- Thêm tiêu đề chat giả -->
+                <div id="user-info">
+                    <span id="user-display"></span> <!-- JS sẽ điền tên vào đây -->
+                    <button id="logout-button">Đăng xuất</button>
+                </div>
+            </header>
+            
+            <!-- Danh sách tin nhắn -->
+            <div id="message-list">
+                <!-- Tin nhắn mẫu -->
+                <div class="message">
+                    <div class="sender">Hệ thống</div>
+                    <div class="text">Chào mừng bạn đến với Web Chat!</div>
+                </div>
+            </div>
+            
+            <!-- Form nhập và gửi tin nhắn -->
+            <form id="message-form">
+                <input type="text" id="message-input" placeholder="Nhập tin nhắn của bạn..." autocomplete="off">
+                <button type="submit" id="send-button">Gửi</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+        
+</body>
+</html>
